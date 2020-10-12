@@ -10,18 +10,13 @@ import Sidebar from "./Sidebar";
 
 function App() {
   return (
+    
     <BrowserRouter>
       <div className="app">
         <Switch>
           <Route path="/login">
-            <div className="app__render">
-              <div className="app__header">
-                <Header />
-              </div>
-              <div className="app__login">
-                <Login />
-              </div>
-            </div>
+            <Header />
+            <Login />
           </Route>
 
           <Route path="/signup">
@@ -46,10 +41,9 @@ function App() {
             <Header />
             <Home />
           </Route>
-        </Switch>
-      </div>
-    </BrowserRouter>
+          </Switch>
+          </div>
+          </BrowserRouter>
   );
 }
-
 export default App;
