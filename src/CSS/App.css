@@ -1,12 +1,19 @@
 * {
   margin: 0;
 }
-
-
-.app__home {
+/* .app__render{
   width: 100%;
-  height: 100%;
+  height: 100% ;
+  background-color: #f8f8f8;
 }
+
+.app__login {
+  background-color: #f8f8f8;
+  display: grid;
+  place-items: center;
+} */
+
+
 
 @media screen and (max-width: 960px) {
   
