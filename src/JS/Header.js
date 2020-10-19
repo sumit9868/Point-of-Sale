@@ -13,13 +13,6 @@ function Header() {
     setUser("");
   };
 
-  const login = () => {
-   
-  };
-
-  const newuser = () => {
-
-  };
 
   return (
     <div className="header">
@@ -56,7 +49,7 @@ function Header() {
           </>
         ) : (
           <>
-            <div className="header__controls" onClick={login}>
+            <div className="header__controls" >
               <Link to="/login" className="router__link">
                 <div className="header__controls">
                   <LockOpenRoundedIcon className="header__controls__icon" />
@@ -65,7 +58,7 @@ function Header() {
               </Link>
             </div>
 
-            <div className="header__controls" onClick={newuser}>
+            <div className="header__controls" >
               <Link to="/signup" className="router__link">
                 <div className="header__controls">
                   <PersonAddIcon className="header__controls__icon" />

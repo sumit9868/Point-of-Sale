@@ -8,13 +8,13 @@ const firebaseConfig = {
   storageBucket: "easysell-726ad.appspot.com",
   messagingSenderId: "734897434122",
   appId: "1:734897434122:web:2630107f0e506be6a0f9f3",
-  measurementId: "G-LKJQZMZV1Q",
+  measurementId: "G-LKJQZMZV1Q"
 };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
-
 const db = firebase.firestore();
 const auth = firebase.auth();
+const provider = new firebase.auth.GoogleAuthProvider();
 
-export { db, auth };
+export { db, auth, provider };
 export default firebase;

@@ -8,16 +8,13 @@ function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const signup_N = (event) => {
+  const signup_normal = (event) => {
     alert("trying to signin with id pwd");
   };
 
-  const signup_G = () => {
+  const signup_google = () => {
     alert("sign up with google");
   };
-
-
-
 
   return (
     <div className="profile">
@@ -40,11 +37,11 @@ function Signup() {
           placeholder="Enter your Password"
         ></input>
 
-        <Button onClick={signup_N}>Create New Account</Button>
+        <Button onClick={signup_normal}>Create New Account</Button>
 
         <div class="separator">Or ?</div>
 
-        <Button onClick={signup_G}>SignUp with Google</Button>
+        <Button onClick={signup_google}>SignUp with Google</Button>
 
       </div>
     </div>

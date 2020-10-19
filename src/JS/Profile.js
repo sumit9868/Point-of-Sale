@@ -3,8 +3,8 @@ import "../CSS/Profile.css";
 import InputField from "./InputField";
 
 function Profile() {
+  
   const inputRefs = React.useRef([React.createRef(), React.createRef()]);
-
   const [data, setData] = React.useState({});
 
   const handleChange = (name, value) => {
