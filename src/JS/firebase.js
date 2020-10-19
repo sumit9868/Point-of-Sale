@@ -1,14 +1,14 @@
-import firebase from "firebase";
+import * as firebase from "firebase";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyArNcPbGBvT60Kk2eHI6Y2-XiYJRr86wj4",
-  authDomain: "easysell-726ad.firebaseapp.com",
-  databaseURL: "https://easysell-726ad.firebaseio.com",
-  projectId: "easysell-726ad",
-  storageBucket: "easysell-726ad.appspot.com",
-  messagingSenderId: "734897434122",
-  appId: "1:734897434122:web:2630107f0e506be6a0f9f3",
-  measurementId: "G-LKJQZMZV1Q"
+  apiKey: "AIzaSyBHW89srYuZrZrvl-akk8lhwJxEk8xEwEI",
+    authDomain: "pointofsale-c6c27.firebaseapp.com",
+    databaseURL: "https://pointofsale-c6c27.firebaseio.com",
+    projectId: "pointofsale-c6c27",
+    storageBucket: "pointofsale-c6c27.appspot.com",
+    messagingSenderId: "795871630383",
+    appId: "1:795871630383:web:f2b71efe9e482d4c61e2da",
+    measurementId: "G-N7TX9Y1QMJ"
 };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
