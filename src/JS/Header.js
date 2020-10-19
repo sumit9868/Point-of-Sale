@@ -23,6 +23,7 @@ function Header() {
 
   return (
     <div className="header">
+      
       <div className="header__logo">
         <Link to="/sidebar" className="router__link">
           <img src={logo} alt="pos logo" />
