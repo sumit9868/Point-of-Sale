@@ -2,8 +2,8 @@ import React from 'react'
 
 function Billing() {
     return (
-        <div>
-            
+        <div className="billing">
+            <span> billing page  </span>
         </div>
     )
 }

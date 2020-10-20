@@ -5,7 +5,7 @@ import { db } from "./firebase.js";
 import { useStateValue } from "./StateProvider";
 
 function Newshop() {
-  const [{ user }] = useStateValue();
+  const [{ user }, dispatch] = useStateValue();
 
   const inputRefs = React.useRef([
     React.createRef(),
@@ -38,15 +38,20 @@ function Newshop() {
       return;
     }
 
+    var time=new Date().getTime()
+
+    
+  
     db.collection("users")
-      .doc(user?.email)
+      .doc(user?.uid)
       .collection("shops")
+      .doc("abcdef")
       .set({
         shopName: data.shopName,
         ShopCity: data.ShopCity,
         yourName: data.yourName,
         contact: data.contact,
-        timestamp: new Date().getTime(),
+        timestamp: time,
       })
       .then(alert("Shop Info Saved"))
       .catch((error) => {
@@ -57,6 +62,8 @@ function Newshop() {
   return (
     <div className="newshop">
       <div className="newshop__text">
+
+        <h1>Hiiiii {user?.email}</h1>
         <span className="newshop__header"> Your Shop Details </span> <br />
         <span className="newshop__para">
           We need your shop details to get started. A register and few sample

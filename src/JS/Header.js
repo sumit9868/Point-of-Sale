@@ -10,20 +10,17 @@ import { useStateValue } from "./StateProvider";
 import { actionTypes } from "./reducer";
 
 function Header() {
-
-  const [{user},dispatch] = useStateValue("");
-
-  const signout = () => {
-    dispatch({
-      type: actionTypes.REMOVE_USER
-    });
-  };
-
+  // const [{ user }, dispatch] = useStateValue("");
+  
+  // const signout = () => {
+  //   dispatch({
+  //     type: actionTypes.REMOVE_USER,
+  //   });
+  // };
 
   return (
     <div className="header">
-      
-      <div className="header__logo">
+      {/* <div className="header__logo">
         <Link to="/sidebar" className="router__link">
           <img src={logo} alt="pos logo" />
         </Link>
@@ -40,7 +37,7 @@ function Header() {
           <>
             <div className="header__controls">
               <Link to="/profile">
-                <Avatar/>
+                <Avatar />
               </Link>
             </div>
 
@@ -55,7 +52,7 @@ function Header() {
           </>
         ) : (
           <>
-            <div className="header__controls" >
+            <div className="header__controls">
               <Link to="/login" className="router__link">
                 <div className="header__controls">
                   <LockOpenRoundedIcon className="header__controls__icon" />
@@ -64,7 +61,7 @@ function Header() {
               </Link>
             </div>
 
-            <div className="header__controls" >
+            <div className="header__controls">
               <Link to="/signup" className="router__link">
                 <div className="header__controls">
                   <PersonAddIcon className="header__controls__icon" />
@@ -74,7 +71,7 @@ function Header() {
             </div>
           </>
         )}
-      </div>
+      </div> */}
     </div>
   );
 }

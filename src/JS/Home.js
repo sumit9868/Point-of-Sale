@@ -3,11 +3,11 @@ import "../CSS/Home.css";
 import { useStateValue } from "./StateProvider";
 
 function Home() {
-  const [{ user }] = useStateValue();
-
+  const [{ user },dispatch] = useStateValue();
   return (
     <div className="home">
-      <h1>{user?.displayName}</h1>
+      
+      <h1>Hiii  {user?.email}</h1>
 
       <h1>This is the Home Page</h1>
 
