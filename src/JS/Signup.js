@@ -1,61 +1,58 @@
 import React, { useState } from "react";
 import "../CSS/Signup.css";
-import logo from "../MEDIA/logo192.png";
+import logo from "../MEDIA/logo.png";
 import { Button } from "@material-ui/core";
-import { auth } from "./firebase.js";
+import { auth, db } from "./firebase.js";
 import { useHistory } from "react-router-dom";
+import { useStateValue } from "./StateProvider";
+import { actionTypes } from "./reducer";
 
 function Signup() {
+  const [state,dispatch]=useStateValue();
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-<<<<<<< HEAD
-  const signup_normal = (event) => {
-    alert("trying to signin with id pwd");
-=======
-  const signup_N = (e) => {
-    alert("trying to signin with id and pass");
-    // e.preventDefault();
+  const signup_normal = (e) => {
+    e.preventDefault();
 
-    var actionCodeSettings = {
-      // URL you want to redirect back to. The domain (www.example.com) for this
-      // URL must be whitelisted in the Firebase Console.
-      url: 'localhost:3000',
-      // This must be true.
-      handleCodeInApp: true,
-      iOS: {
-        bundleId: 'com.example.ios'
-      },
-      android: {
-        packageName: 'com.example.android',
-        installApp: true,
-        minimumVersion: '12'
-      },
-      dynamicLinkDomain: './'
-    };
+    // var actionCodeSettings = {
+    //   url: "localhost:3000",
+    //   handleCodeInApp: true,
+    //   iOS: {
+    //     bundleId: "com.example.ios",
+    //   },
+    //   android: {
+    //     packageName: "com.example.android",
+    //     installApp: true,
+    //     minimumVersion: "12",
+    //   },
+    //   dynamicLinkDomain: "./",
+    // };
 
-    auth.sendSignInLinkToEmail(email, actionCodeSettings)
-            .then(function() {
-              alert("Hi");
-    // The link was successfully sent. Inform the user.
-    // Save the email locally so you don't need to ask the user for it again
-    // if they open the link on the same device.
-    window.localStorage.setItem('emailForSignIn', email);
-  })
-  .catch(function(error) {
-    alert(error.code);
-    // Some error occurred, you can inspect the code: error.code
-  });
-    auth.createUserWithEmailAndPassword(email, password)
-        .then((auth) => {
-            // it successfully created a new user with email and password
-            if (auth) {
-                history.push('/')
-            }
-        })
-        .catch(error => alert(error.message));
->>>>>>> 4dafe560de21d80e6b1733dfe076db29a3957e22
+    // auth
+    //   .sendSignInLinkToEmail(email, actionCodeSettings)
+    //   .then(function () {
+    //     alert("Hi");
+
+    //     window.localStorage.setItem("emailForSignIn", email);
+    //   })
+    //   .catch(function (error) {
+    //     alert(error.code);
+    //   });
+
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((result) => {
+        
+        dispatch({
+          type: actionTypes.SET_USER,
+          user: result.user,
+        });
+
+        history.push("/newshop");
+      })
+      .catch((error) => alert(error.message));
   };
 
   const signup_google = () => {
@@ -88,7 +85,6 @@ function Signup() {
         <div class="separator">Or ?</div>
 
         <Button onClick={signup_google}>SignUp with Google</Button>
-
       </div>
     </div>
   );

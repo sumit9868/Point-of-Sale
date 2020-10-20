@@ -7,6 +7,7 @@ import Login from "./Login";
 import Signup from "./Signup";
 import Profile from "./Profile";
 import Sidebar from "./Sidebar";
+import Newshop from "./Newshop";
 
 function App() {
   return (
@@ -35,6 +36,10 @@ function App() {
               <Sidebar />
               <Home />
             </div>
+          </Route>
+
+          <Route path="/newshop">
+            <Newshop/>
           </Route>
 
           <Route path="/">

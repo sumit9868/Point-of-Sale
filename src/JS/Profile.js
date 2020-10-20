@@ -5,6 +5,7 @@ import InputField from "./InputField";
 function Profile() {
   
   const inputRefs = React.useRef([React.createRef(), React.createRef()]);
+  // eslint-disable-next-line
   const [data, setData] = React.useState({});
 
   const handleChange = (name, value) => {

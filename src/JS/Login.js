@@ -1,37 +1,34 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "../CSS/Login.css";
-import logo from "../MEDIA/logo192.png";
+import logo from "../MEDIA/logo.png";
 import { Button } from "@material-ui/core";
-import { auth,provider } from "./firebase";
+import { auth } from "./firebase";
+import { useStateValue } from "./StateProvider";
+import { actionTypes } from "./reducer";
 
 function Login() {
-  const history= useHistory();
+
+  
+  // eslint-disable-next-line
+  const [state, dispatch] = useStateValue();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const history = useHistory();
 
   const signin_normal = (event) => {
     alert("trying to signin with id pwd");
     event.preventDefault();
     auth
       .signInWithEmailAndPassword(email, password)
-      .then((auth) => {
-        //logged in , go to personal home
+      .then((result) => {
+        dispatch({
+          type: actionTypes.SET_USER,
+          user: result.user,
+        });
         history.push("/");
       })
       .catch((e) => alert(e.message));
-  };
-
-  const signin_google = () => {
-    alert("sign in with google");
-    auth
-      .signInWithPopup(provider)
-      .then((result) => {
-        history.push("/");
-      })
-      .catch((error) => {
-        alert(error.message);
-      });
   };
 
   return (
@@ -55,11 +52,7 @@ function Login() {
           placeholder="Enter your Password"
         ></input>
 
-        <Button onClick={signin_normal}>Create New User</Button>
-
-        <div class="separator"> Or ?</div>
-
-        <Button onClick={signin_google}>Sign Up with Google</Button>
+        <Button onClick={signin_normal}>Sign In</Button>
       </div>
     </div>
   );

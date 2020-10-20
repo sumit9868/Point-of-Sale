@@ -1,16 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import "../CSS/Header.css";
 import { Link } from "react-router-dom";
-import logo from "../MEDIA/logo192.png";
+import logo from "../MEDIA/logo.png";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import MeetingRoomIcon from "@material-ui/icons/MeetingRoom";
 import { Avatar } from "@material-ui/core";
 import LockOpenRoundedIcon from "@material-ui/icons/LockOpenRounded";
+import { useStateValue } from "./StateProvider";
+import { actionTypes } from "./reducer";
 
 function Header() {
-  const [user, setUser] = useState("Prabjot Singh");
+
+  const [{user},dispatch] = useStateValue("");
+
   const signout = () => {
-    setUser("");
+    dispatch({
+      type: actionTypes.REMOVE_USER
+    });
   };
 
 
@@ -34,7 +40,7 @@ function Header() {
           <>
             <div className="header__controls">
               <Link to="/profile">
-                <Avatar src="https://avatars2.githubusercontent.com/u/47036342?s=400&u=19d3cef0c74f469df71e866fdba151060022a097&v=4" />
+                <Avatar/>
               </Link>
             </div>
 
