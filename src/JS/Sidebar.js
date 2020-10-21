@@ -1,54 +1,109 @@
-import React from "react";
-import {Link} from "react-router-dom"
+import React, { useState } from "react";
+import * as FaIcons from "react-icons/fa";
+import * as AiIcons from "react-icons/ai";
+import { Link } from "react-router-dom";
+import { SidebarData } from "./SidebarData";
+import { IconContext } from "react-icons";
 import "../CSS/Sidebar.css";
+import "../CSS/Header.css";
+
+import logo from "../MEDIA/logo.png";
+import PersonAddIcon from "@material-ui/icons/PersonAdd";
+import MeetingRoomIcon from "@material-ui/icons/MeetingRoom";
+import { Avatar } from "@material-ui/core";
+import LockOpenRoundedIcon from "@material-ui/icons/LockOpenRounded";
+import { useStateValue } from "./StateProvider";
+import { actionTypes } from "./reducer";
 
 function Sidebar() {
+  const [sidebar, setSidebar] = useState(false);
+
+  const showSidebar = () => setSidebar(!sidebar);
+
+  const [{ user }, dispatch] = useStateValue("");
+
+  const signout = () => {
+    dispatch({
+      type: actionTypes.REMOVE_USER,
+    });
+  };
+
   return (
-    // <div className="profile">
-    //   <h1>Sidebar page</h1>
-    //   <ol>
-    //     <li>Khatabook</li>
-    //     <li>Analytics</li>
-    //     <li>Inventory</li>
-    //     <li>Customers</li>
-    //     <li>Fee</li>
-    //   </ol>
-    // </div>
-    <div className="wrapper">
-      <div id="sidebar">
-        <div className="sidebar_header">
-          <h3>Bootstrap Slider</h3>
-          </div>
-      </div>
-      <ul className="lisst_unstyled components">
-        <p>
-          The Providers
-        </p>
-        <li calssName="active">
-          <Link to ="/" >
-
+    <>
+      <IconContext.Provider value={{ color: "#fff" }}>
+        <div className="navbar">
+          <Link to="#" className="menu-bars">
+            <FaIcons.FaBars onClick={showSidebar} />
           </Link>
-        </li>
+        </div>
+        <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
+          <ul className="nav-menu-items" onClick={showSidebar}>
+            <li className="navbar-toggle">
+              <Link to="#" className="menu-bars">
+                <AiIcons.AiOutlineClose />
+              </Link>
+            </li>
+            {SidebarData.map((item, index) => {
+              return (
+                <li key={index} className={item.cName}>
+                  <Link to={item.path}>
+                    {item.icon}
+                    <span>{item.title}</span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+        <div className="header__tagline">
+          <Link to="/" className="router__link">
+            <div className="header__taglinetext">Chalo Online POS</div>
+          </Link>
+        </div>
 
-      </ul>
-    </div>
+        <div className="header__content">
+          {user ? (
+            <>
+              <div className="header__controls">
+                <Link to="/profile">
+                  <Avatar />
+                </Link>
+              </div>
+
+              <div className="header__controls" onClick={signout}>
+                <Link to="/" className="router__link">
+                  <div className="header__controls">
+                    <MeetingRoomIcon className="header__controls__icon" />
+                    <span className="header__text">Signout</span>
+                  </div>
+                </Link>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="header__controls">
+                <Link to="/login" className="router__link">
+                  <div className="header__controls">
+                    <LockOpenRoundedIcon className="header__controls__icon" />
+                    <span className="header__text">Login</span>
+                  </div>
+                </Link>
+              </div>
+
+              <div className="header__controls">
+                <Link to="/signup" className="router__link">
+                  <div className="header__controls">
+                    <PersonAddIcon className="header__controls__icon" />
+                    <span className="header__text">New ?</span>
+                  </div>
+                </Link>
+              </div>
+            </>
+          )}
+        </div>
+      </IconContext.Provider>
+    </>
   );
 }
 
 export default Sidebar;
-
-// 1) Read CSV file
-// 2) Sort
-// 3) Export Import
-// 4 ) Chat bot
-// 5) Print Receipts
-// 6) Tender cash
-// 7) On screen project addition
-// 8) Customer import export
-// 9) Search
-// 10) payment gateway
-// 11) Receipts
-// 14) Feedback
-// 15) Day-vise
-// 19) Discount
-// 20) Taxes

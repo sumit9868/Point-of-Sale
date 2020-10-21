@@ -1,30 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 import "../CSS/Header.css";
 import { Link } from "react-router-dom";
-import logo from "../MEDIA/logo192.png";
+import logo from "../MEDIA/logo.png";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import MeetingRoomIcon from "@material-ui/icons/MeetingRoom";
 import { Avatar } from "@material-ui/core";
 import LockOpenRoundedIcon from "@material-ui/icons/LockOpenRounded";
+import { useStateValue } from "./StateProvider";
+import { actionTypes } from "./reducer";
 
 function Header() {
-  const [user, setUser] = useState("Prabjot Singh");
-  const signout = () => {
-    setUser("");
-  };
-
-  const login = () => {
-   
-  };
-
-  const newuser = () => {
-
-  };
+  // const [{ user }, dispatch] = useStateValue("");
+  
+  // const signout = () => {
+  //   dispatch({
+  //     type: actionTypes.REMOVE_USER,
+  //   });
+  // };
 
   return (
     <div className="header">
-      
-      <div className="header__logo">
+      {/* <div className="header__logo">
         <Link to="/sidebar" className="router__link">
           <img src={logo} alt="pos logo" />
         </Link>
@@ -41,7 +37,7 @@ function Header() {
           <>
             <div className="header__controls">
               <Link to="/profile">
-                <Avatar src="https://avatars2.githubusercontent.com/u/47036342?s=400&u=19d3cef0c74f469df71e866fdba151060022a097&v=4" />
+                <Avatar />
               </Link>
             </div>
 
@@ -56,7 +52,7 @@ function Header() {
           </>
         ) : (
           <>
-            <div className="header__controls" onClick={login}>
+            <div className="header__controls">
               <Link to="/login" className="router__link">
                 <div className="header__controls">
                   <LockOpenRoundedIcon className="header__controls__icon" />
@@ -65,7 +61,7 @@ function Header() {
               </Link>
             </div>
 
-            <div className="header__controls" onClick={newuser}>
+            <div className="header__controls">
               <Link to="/signup" className="router__link">
                 <div className="header__controls">
                   <PersonAddIcon className="header__controls__icon" />
@@ -75,7 +71,7 @@ function Header() {
             </div>
           </>
         )}
-      </div>
+      </div> */}
     </div>
   );
 }
