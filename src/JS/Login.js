@@ -1,29 +1,32 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import "../CSS/Login.css";
-import logo from "../MEDIA/logo192.png";
+import logo from "../MEDIA/logo.png";
 import { Button } from "@material-ui/core";
+import { auth } from "./firebase.js";
 
 function Login() {
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const history = useHistory();
 
-  const signin_N = (event) => {
+  const signin_normal = (event) => {
+    event.preventDefault();
 
-    alert("trying to signin with id pwd");
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((auth) => {
+        history.push("/");
+      })
+      .catch((e) => alert(e.message));
   };
 
-  const signin_G = () => {
-    alert("sign in with google");
-  };
-  
   return (
     <div className="login">
       <div className="login__container">
         <img src={logo} alt="logo" />
 
-        <h1>Hi there , Pleasure Signin to your account</h1>
-        
+        <h1>Hi there , Please Signin</h1>
         <input
           type="email"
           value={email}
@@ -38,16 +41,8 @@ function Login() {
           placeholder="Enter your Password"
         ></input>
 
-        <Button onClick={signin_N}>Create New User</Button>
-        
-        <div class="separator"> Or ?</div>
-      
-        <Button onClick={signin_G}>Sign Up with Google</Button>
-
-      
-
+        <Button onClick={signin_normal}>Sign In</Button>
       </div>
-
     </div>
   );
 }
