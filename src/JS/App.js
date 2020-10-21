@@ -7,6 +7,7 @@ import Login from "./Login";
 import Signup from "./Signup";
 import Profile from "./Profile";
 import Sidebar from "./Sidebar";
+import CSReader from './CSReader'
 import Billing from "./Billing";
 import Inventroy from "./Inventory";
 import Analytics from "./Analytics";
@@ -15,6 +16,7 @@ import Newshop from "./Newshop";
 import { useStateValue } from "./StateProvider";
 import { auth } from "./firebase";
 import { actionTypes } from "./reducer";
+
 
 function App() {
   const [{ user }, dispatch] = useStateValue();
@@ -38,6 +40,7 @@ function App() {
           type: actionTypes.SET_USER,
           user: null,
         });
+
       }
     });
 
@@ -84,22 +87,27 @@ function App() {
 
           <Route path="/Inventory">
             <Header />
+            <Sidebar />
             <Inventroy />
           </Route>
 
           <Route path="/Analytics">
             <Header />
+            <Sidebar />
             <Analytics />
           </Route>
 
           <Route path="/KhataBook">
             <Header />
+            <Sidebar />
             <KhataBook />
           </Route>
 
           <Route path="/">
             <Header />
+            <Sidebar />
             <Home />
+            <CSReader/>
           </Route>
         </Switch>
       </div>

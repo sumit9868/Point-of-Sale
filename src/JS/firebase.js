@@ -11,13 +11,15 @@ const firebaseConfig = {
   appId: "1:140818413504:web:ffc59bdf870782ac683a25",
   measurementId: "G-TTTGBED93M"
 };
-
-
 // eslint-disable-next-line
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 const db=firebaseApp.firestore();
 const auth = firebase.auth();
 const provider = new firebase.auth.GoogleAuthProvider();
 
+provider.setCustomParameters({
+  promt: "select_account",
+});
+export const signInWithGoogle = () =>    auth.signInWithPopup(provider);
 export { db, auth, provider };
 export default firebase;

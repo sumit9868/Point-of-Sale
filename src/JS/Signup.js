@@ -4,6 +4,7 @@ import logo from "../MEDIA/logo.png";
 import { Button } from "@material-ui/core";
 import { db, auth } from "./firebase.js";
 import { useHistory } from "react-router-dom";
+import {signInWithGoogle} from './firebase.js';
 
 function Signup() {
   const history = useHistory();
@@ -62,7 +63,8 @@ function Signup() {
 
         <div class="separator">Or ?</div>
 
-        <Button onClick={signup_google}>SignUp with Google</Button>
+        <Button onClick={signInWithGoogle}>SignUp with Google</Button>
+
       </div>
     </div>
   );
