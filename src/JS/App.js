@@ -87,6 +87,7 @@ function App() {
 
           <Route path="/Inventory">
             <Header />
+            <Sidebar />
             <Inventroy />
           </Route>
 
