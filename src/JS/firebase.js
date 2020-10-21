@@ -1,6 +1,8 @@
-import * as firebase from "firebase";
 
-const firebaseConfig = {
+import firebase from 'firebase/app';
+import  "firebase/firestore";
+import 'firebase/auth';
+const config = {
   apiKey: "AIzaSyBHW89srYuZrZrvl-akk8lhwJxEk8xEwEI",
     authDomain: "pointofsale-c6c27.firebaseapp.com",
     databaseURL: "https://pointofsale-c6c27.firebaseio.com",
@@ -10,11 +12,12 @@ const firebaseConfig = {
     appId: "1:795871630383:web:f2b71efe9e482d4c61e2da",
     measurementId: "G-N7TX9Y1QMJ"
 };
+firebase.initializeApp(config);
+export const auth = firebase.auth();
+export const firestore = firebase.firestore();
 
-const firebaseApp = firebase.initializeApp(firebaseConfig);
-
-const db = firebase.firestore();
-const auth = firebase.auth();
-
-export { db, auth };
-export default firebase;
+const provider = new firebase.auth.GoogleAuthProvider();
+provider.setCustomParameters({
+  promt: "select_account",
+});
+export const signInWithGoogle = () =>    auth.signInWithPopup(provider);

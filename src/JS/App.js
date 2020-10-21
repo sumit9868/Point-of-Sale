@@ -7,6 +7,7 @@ import Login from "./Login";
 import Signup from "./Signup";
 import Profile from "./Profile";
 import Sidebar from "./Sidebar";
+import CSReader from './CSReader'
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
           <Route path="/">
             <Header />
             <Home />
+            <CSReader/>
           </Route>
           </Switch>
           </div>
