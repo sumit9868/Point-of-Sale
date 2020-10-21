@@ -31,31 +31,6 @@ function Signup() {
         history.push("/newshop");
       })
       .catch((error) => alert(error.message));
-
-    // var actionCodeSettings = {
-    //   url: "localhost:3000",
-    //   handleCodeInApp: true,
-    //   iOS: {
-    //     bundleId: "com.example.ios",
-    //   },
-    //   android: {
-    //     packageName: "com.example.android",
-    //     installApp: true,
-    //     minimumVersion: "12",
-    //   },
-    //   dynamicLinkDomain: "./",
-    // };
-
-    // auth
-    //   .sendSignInLinkToEmail(email, actionCodeSettings)
-    //   .then(function () {
-    //     alert("Hi");
-
-    //     window.localStorage.setItem("emailForSignIn", email);
-    //   })
-    //   .catch(function (error) {
-    //     alert(error.code);
-    //   });
   };
 
   const signup_google = () => {
