@@ -7,7 +7,6 @@ import Login from "./Login";
 import Signup from "./Signup";
 import Profile from "./Profile";
 import Sidebar from "./Sidebar";
-import CSReader from './CSReader'
 import Billing from "./Billing";
 import Inventroy from "./Inventory";
 import Analytics from "./Analytics";
@@ -16,7 +15,7 @@ import Newshop from "./Newshop";
 import { useStateValue } from "./StateProvider";
 import { auth } from "./firebase";
 import { actionTypes } from "./reducer";
-
+import Dashboard2 from "./Dashboard2.js";
 
 function App() {
   const [{ user }, dispatch] = useStateValue();
@@ -107,7 +106,7 @@ function App() {
             <Header />
             <Sidebar />
             <Home />
-            <CSReader/>
+            <Dashboard2 />
           </Route>
         </Switch>
       </div>
