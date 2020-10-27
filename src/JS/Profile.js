@@ -14,7 +14,7 @@ function Profile() {
 
   const submitForm = (e) => {
     e.preventDefault();
-
+    
     let isValid = true;
 
     for (let i = 0; i < inputRefs.current.length; i++) {

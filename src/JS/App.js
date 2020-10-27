@@ -16,6 +16,8 @@ import { useStateValue } from "./StateProvider";
 import { auth } from "./firebase";
 import { actionTypes } from "./reducer";
 import Dashboard2 from "./Dashboard2.js";
+import DisplayTable from "./DisplayTable.js";
+
 
 function App() {
   const [{ user }, dispatch] = useStateValue();
@@ -24,10 +26,6 @@ function App() {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
       if (authUser) {
         //logged in
-        console.log(authUser?.uid);
-        console.log(authUser);
-        console.log(authUser?.email);
-
         dispatch({
           type: actionTypes.SET_USER,
           user: authUser,
@@ -106,6 +104,7 @@ function App() {
             <Header />
             <Sidebar />
             <Home />
+            {/*<DisplayTable />*/}
             <Dashboard2 />
           </Route>
         </Switch>
