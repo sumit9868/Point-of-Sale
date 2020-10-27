@@ -7,7 +7,6 @@ import Login from "./Login";
 import Signup from "./Signup";
 import Profile from "./Profile";
 import Sidebar from "./Sidebar";
-import CSReader from './CSReader'
 import Billing from "./Billing";
 import Inventroy from "./Inventory";
 import Analytics from "./Analytics";
@@ -16,6 +15,8 @@ import Newshop from "./Newshop";
 import { useStateValue } from "./StateProvider";
 import { auth } from "./firebase";
 import { actionTypes } from "./reducer";
+import Dashboard2 from "./Dashboard2.js";
+import DisplayTable from "./DisplayTable.js";
 
 
 function App() {
@@ -25,10 +26,6 @@ function App() {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
       if (authUser) {
         //logged in
-        console.log(authUser?.uid);
-        console.log(authUser);
-        console.log(authUser?.email);
-
         dispatch({
           type: actionTypes.SET_USER,
           user: authUser,
@@ -107,7 +104,8 @@ function App() {
             <Header />
             <Sidebar />
             <Home />
-            <CSReader/>
+            {/*<DisplayTable />*/}
+            <Dashboard2 />
           </Route>
         </Switch>
       </div>
