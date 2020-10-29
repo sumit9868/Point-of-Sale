@@ -97,7 +97,6 @@ function App() {
           <Route path="/">
             <Sidebar />
             <Home />
-            {/*<DisplayTable />*/}
             <Dashboard2 />
           </Route>
         </Switch>
