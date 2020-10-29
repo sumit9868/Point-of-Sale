@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-
 import { CSVReader } from 'react-papaparse'
 
 export default class CSReader extends Component {
@@ -12,9 +11,7 @@ export default class CSReader extends Component {
   }
 
   handleOnRemoveFile = (data) => {
-    console.log('---------------------------')
-    console.log(data)
-  
+    console.log(data);  
     console.log('---------------------------')
   }
  

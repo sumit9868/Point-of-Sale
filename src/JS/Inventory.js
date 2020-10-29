@@ -8,11 +8,10 @@ function Inventory() {
       <h1> Inventory page </h1>
       <h1>{user?.uid}</h1>
       <h1>{user?.email}</h1>
-
     </div>
   );
 }
 
 export default Inventory;
 
-//editable + quantity + tax/price + category by company/brand + import/export + searchbar + add/remove product + sort
+//editable + quantity + tax/price + category by company/brand + import/export + searchbar + add/remove product + sort*
