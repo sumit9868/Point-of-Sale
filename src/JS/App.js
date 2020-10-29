@@ -16,8 +16,6 @@ import { useStateValue } from "./StateProvider";
 import { auth } from "./firebase";
 import { actionTypes } from "./reducer";
 import Dashboard2 from "./Dashboard2.js";
-import DisplayTable from "./DisplayTable.js";
-
 
 function App() {
   const [{ user }, dispatch] = useStateValue();
@@ -104,7 +102,6 @@ function App() {
             <Header />
             <Sidebar />
             <Home />
-            {/*<DisplayTable />*/}
             <Dashboard2 />
           </Route>
         </Switch>
