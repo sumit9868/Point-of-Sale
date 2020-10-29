@@ -1,6 +1,7 @@
 import React from 'react'
-import './DisplayTable.css'
+import '../CSS/DisplayTable.css'
 import {Link} from 'react-router-dom'
+
 const tabledata = [
     {Name:"Noodles",Price:150,Av_Qty:10},
     {Name:"Pasta",Price:80,Av_Qty:11},
@@ -12,6 +13,7 @@ const listItems = tabledata.map(
   (object,i)=>
     <tr>  <td>{object.Name}</td><td>{object.Price}</td><td>{object.Av_Qty}</td> </tr>
 );
+
 const a = JSON.stringify(tabledata);
 function DisplayTable() {
     return (

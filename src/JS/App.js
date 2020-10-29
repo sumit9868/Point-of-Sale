@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import "../CSS/App.css";
-import Header from "./Header";
 import Home from "./Home";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Login from "./Login";
@@ -16,10 +15,9 @@ import { useStateValue } from "./StateProvider";
 import { auth } from "./firebase";
 import { actionTypes } from "./reducer";
 import Dashboard2 from "./Dashboard2.js";
-import DisplayTable from "./DisplayTable.js";
-
 
 function App() {
+  // eslint-disable-next-line
   const [{ user }, dispatch] = useStateValue();
 
   useEffect(() => {
@@ -37,7 +35,6 @@ function App() {
           type: actionTypes.SET_USER,
           user: null,
         });
-
       }
     });
 
@@ -51,22 +48,21 @@ function App() {
       <div className="app">
         <Switch>
           <Route path="/login">
-            <Header />
+            <Sidebar />
             <Login />
           </Route>
 
           <Route path="/signup">
-            <Header />
+            <Sidebar />
             <Signup />
           </Route>
 
           <Route path="/profile">
-            <Header />
+            <Sidebar />
             <Profile />
           </Route>
 
           <Route path="/sidebar">
-            <Header />
             <div className="app__sidebar">
               <Sidebar />
               <Home />
@@ -78,30 +74,27 @@ function App() {
           </Route>
 
           <Route path="/Billing">
-            <Header />
+            <Sidebar />
             <Billing />
           </Route>
 
           <Route path="/Inventory">
-            <Header />
             <Sidebar />
             <Inventroy />
           </Route>
 
           <Route path="/Analytics">
-            <Header />
             <Sidebar />
+
             <Analytics />
           </Route>
 
           <Route path="/KhataBook">
-            <Header />
             <Sidebar />
             <KhataBook />
           </Route>
 
           <Route path="/">
-            <Header />
             <Sidebar />
             <Home />
             {/*<DisplayTable />*/}

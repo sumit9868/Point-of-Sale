@@ -5,6 +5,7 @@ import { db } from "./firebase.js";
 import { useStateValue } from "./StateProvider";
 
 function Newshop() {
+  // eslint-disable-next-line
   const [{ user }, dispatch] = useStateValue();
 
   const inputRefs = React.useRef([

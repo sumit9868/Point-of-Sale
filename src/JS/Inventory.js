@@ -2,6 +2,8 @@ import React from "react";
 import { useStateValue } from "./StateProvider";
 
 function Inventory() {
+  
+  // eslint-disable-next-line
   const [{ user }, dispatch] = useStateValue();
   return (
     <div className="inventory">

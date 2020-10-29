@@ -1,12 +1,17 @@
   
 .navbar {
     background-color: #060b26;
-    height: 80px;
+    height: fit-content;
     display: flex;
     justify-content: start;
     align-items: center;
   }
   
+.siderBar__img{
+  height:100px;
+  width:100px;
+}
+
   .menu-bars {
     margin-left: 2rem;
     font-size: 2rem;

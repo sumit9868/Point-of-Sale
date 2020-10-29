@@ -6,7 +6,6 @@ import { SidebarData } from "./SidebarData";
 import { IconContext } from "react-icons";
 import "../CSS/Sidebar.css";
 import "../CSS/Header.css";
-
 import logo from "../MEDIA/logo.png";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import MeetingRoomIcon from "@material-ui/icons/MeetingRoom";
@@ -32,9 +31,59 @@ function Sidebar() {
     <>
       <IconContext.Provider value={{ color: "#fff" }}>
         <div className="navbar">
-          <Link to="#" className="menu-bars">
-            <FaIcons.FaBars onClick={showSidebar} />
+
+          <Link to="#" className="">
+            {/* <FaIcons.FaBars onClick={showSidebar} /> */}
+            <img src={logo} onClick={showSidebar} alt="pos logo" className="siderBar__img" />
+            
           </Link>
+
+          <div className="header__tagline">
+            <Link to="/" className="router__link">
+              <div className="header__taglinetext">Chalo Online POS</div>
+            </Link>
+          </div>
+
+          <div className="header__content">
+            {user ? (
+              <>
+                <div className="header__controls">
+                  <Link to="/profile">
+                    <Avatar />
+                  </Link>
+                </div>
+
+                <div className="header__controls" onClick={signout}>
+                  <Link to="/" className="router__link">
+                    <div className="header__controls">
+                      <MeetingRoomIcon className="header__controls__icon" />
+                      <span className="header__text">Signout</span>
+                    </div>
+                  </Link>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="header__controls">
+                  <Link to="/login" className="router__link">
+                    <div className="header__controls">
+                      <LockOpenRoundedIcon className="header__controls__icon" />
+                      <span className="header__text">Login</span>
+                    </div>
+                  </Link>
+                </div>
+
+                <div className="header__controls">
+                  <Link to="/signup" className="router__link">
+                    <div className="header__controls">
+                      <PersonAddIcon className="header__controls__icon" />
+                      <span className="header__text">New ?</span>
+                    </div>
+                  </Link>
+                </div>
+              </>
+            )}
+          </div>
         </div>
         <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
           <ul className="nav-menu-items" onClick={showSidebar}>
@@ -55,7 +104,7 @@ function Sidebar() {
             })}
           </ul>
         </nav>
-        <div className="header__tagline">
+        {/* <div className="header__tagline">
           <Link to="/" className="router__link">
             <div className="header__taglinetext">Chalo Online POS</div>
           </Link>
@@ -100,7 +149,7 @@ function Sidebar() {
               </div>
             </>
           )}
-        </div>
+        </div> */}
       </IconContext.Provider>
     </>
   );

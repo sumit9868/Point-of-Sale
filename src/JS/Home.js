@@ -3,6 +3,7 @@ import "../CSS/Home.css";
 import { useStateValue } from "./StateProvider";
 
 function Home() {
+  // eslint-disable-next-line
   const [{ user },dispatch] = useStateValue();
   return (
     <div className="home">
