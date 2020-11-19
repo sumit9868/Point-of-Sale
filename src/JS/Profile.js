@@ -3,8 +3,9 @@ import "../CSS/Profile.css";
 import InputField from "./InputField";
 
 function Profile() {
+  
   const inputRefs = React.useRef([React.createRef(), React.createRef()]);
-
+  // eslint-disable-next-line
   const [data, setData] = React.useState({});
 
   const handleChange = (name, value) => {
@@ -13,7 +14,7 @@ function Profile() {
 
   const submitForm = (e) => {
     e.preventDefault();
-
+    
     let isValid = true;
 
     for (let i = 0; i < inputRefs.current.length; i++) {

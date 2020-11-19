@@ -21,9 +21,35 @@ const InputField = forwardRef((props, ref) => {
         const current = rules[i];
 
         if (current === "required") {
-          if (!value) {
-            setError("This field is required");
-            return false
+          // In General Validation 
+          // if (!value) {
+          //   setError("This field is required");
+          //   return false
+          // }
+          if (props.name === "shopName") {
+            if (!value) {
+              setError("Name is required");
+              return false
+            }
+          }
+          if (props.name === "ShopCity") {
+            if (!value) {
+              setError("Shop City is required");
+              return false
+            }
+          }
+          if (props.name === "yourName") {
+            if (!value) {
+              setError("Your Name is required");
+              return false                                  
+            }
+          }
+
+          if (props.name === "contact") {
+            if (!value) {
+              setError("Contact is required");
+              return false                                  
+            }
           }
         }
 
@@ -31,13 +57,13 @@ const InputField = forwardRef((props, ref) => {
         switch (pair[0]) {
           case "min":
             if (value.length < pair[1]) {
-              setError(`This field must be at least ${pair[1]} charactesr long`);
+              setError(`Contact should be of  ${pair[1]} digits`);
               return false
             }
             break;
           case "max":
             if (value.length > pair[1]) {
-              setError(`This field must be no longer than ${pair[1]} charactesr long`);
+              setError(`Contact should be of  ${pair[1]} digits`);
               return false;
             }
             break;
@@ -79,7 +105,7 @@ const InputField = forwardRef((props, ref) => {
 InputField.defaultProps = {
   placeholder: "",
   name: "",
-  type: "text",
+  type: "",
   value: "",
   autoComplete: "off",
   validation: ""
