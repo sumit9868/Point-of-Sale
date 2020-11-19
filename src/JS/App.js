@@ -14,7 +14,7 @@ import Newshop from "./Newshop";
 import { useStateValue } from "./StateProvider";
 import { auth } from "./firebase";
 import { actionTypes } from "./reducer";
-import Dashboard2 from "./Dashboard2.js";
+
 
 function App() {
   // eslint-disable-next-line
@@ -97,7 +97,7 @@ function App() {
           <Route path="/">
             <Sidebar />
             <Home />
-            <Dashboard2 />
+            
           </Route>
         </Switch>
       </div>
